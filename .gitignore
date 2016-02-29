@@ -1,0 +1,7 @@
+
+# 忽略文件
+.idea
+*.iml
+out
+build
+gen

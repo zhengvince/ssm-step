@@ -1,0 +1,21 @@
+group 'com'
+version '1.0.0'
+
+apply plugin: 'war'
+
+
+repositories {
+
+    maven {
+        url 'http://repo1.maven.org/maven2/'
+    }
+}
+
+dependencies {
+    //spring-web-mvc
+    compile 'org.springframework:spring-webmvc:4.2.+'
+    //spring-test
+    compile 'org.springframework:spring-test:4.2.+'
+    //测试
+    testCompile 'junit:junit:4.1+'
+}
