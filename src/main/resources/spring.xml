@@ -10,21 +10,27 @@
 
     <!--
     ********************************************************************************
-    *      step-01 spring 基础配置
+    *      spring 基础配置
     ********************************************************************************
     -->
-    <!-- 扫描注解: @Component, @Repository, @Service, @Controller-->
-    <context:component-scan base-package="com.learn">
-    </context:component-scan>
+    <!-- step-01 扫描注解: @Component, @Repository, @Service, @Controller-->
+    <context:component-scan base-package="com.learn"/>
 
-
-    <!--step-01 视图解析器-->
+    <!-- step-05 加载配置文件-->
+    <context:property-placeholder location="classpath:app.properties"
+                                  ignore-resource-not-found="true"  ignore-unresolvable="true"/>
+    <!-- step-01 视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
           id="internalResourceViewResolver">
-        <!-- 前缀 -->
         <property name="prefix" value="/WEB-INF/pages/" />
-        <!-- 后缀 -->
         <property name="suffix" value=".jsp" />
     </bean>
+
+    <!-- step-05 数据连接池 -->
+    <import resource="classpath:im-druid-bean.xml"/>
+    <!-- step-05 Mybatis -->
+    <import resource="classpath:im-mybatis-bean.xml"/>
+
+
 
 </beans>

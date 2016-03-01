@@ -19,6 +19,7 @@ import java.io.IOException;
 @ContextConfiguration("classpath:spring.xml")
 public class HelloLog4jControllerTest extends TestCase {
 
+
     public static Logger log = LoggerFactory.getLogger(HelloLog4jController.class);
 
     @Test

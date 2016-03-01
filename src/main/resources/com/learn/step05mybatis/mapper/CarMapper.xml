@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.learn.step05mybatis.mapper.CarMapper">
+    <select id="countAll" resultType="int">
+        SELECT count(*) FROM car;
+    </select>
+
+    <select id="selectAll" resultType="com.learn.step05mybatis.entity.Car">
+        SELECT * FROM car ORDER BY id ASC
+    </select>
+
+    <insert id="insert" parameterType="com.learn.step05mybatis.entity.Car">
+        INSERT INTO car(bland,color) VALUES(#{bland},#{color})
+    </insert>
+
+    <update id="update" parameterType="com.learn.step05mybatis.entity.Car">
+        UPDATE car SET bland=#{bland},color=#{color} WHERE   id=#{id}
+    </update>
+
+    <delete id="delete" parameterType="Integer">
+        DELETE FROM car WHERE id=#{id}
+    </delete>
+
+    <select id="findById" parameterType="Integer" resultType="com.learn.step05mybatis.entity.Car">
+        SELECT * FROM car WHERE id=#{id}
+    </select>
+</mapper>

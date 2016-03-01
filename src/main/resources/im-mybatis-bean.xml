@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        ">
+    <!--
+    ********************************************************************************
+    *      step-05 Mybatis
+    ********************************************************************************
+    -->
+
+    <!--把mybatis SqlSessionFactory的创建交由spring管理-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--数据源-->
+        <property name="dataSource" ref="dataSource"/>
+        <!--类简化前缀-->
+        <property name="typeAliasesPackage" value="com.learn.step05mybatis.entity"/>
+        <!--mybatis配置文件路径-->
+        <property name="configLocation" value="classpath:config/mybatis.xml"/>
+        <!-- Mapper xml -->
+        <property name="mapperLocations" value="classpath:com/learn/**/mapper/*.xml"/>
+    </bean>
+
+    <!-- 自动扫描mappers -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.learn.step05mybatis.mapper"/>
+        <!---根据自己的项目路径配置-->
+    </bean>
+
+    <!--把mybatis的事务交由spring去管理-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+        <!--注意：此处的数据源要与sqlSessionFactory中的dataSource相同-->
+    </bean>
+
+
+
+</beans>

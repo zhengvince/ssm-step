@@ -76,5 +76,20 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+    <!--
+    ********************************************************************************
+    *       Druid状态监视
+    ********************************************************************************
+    -->
+    <!--step-05 /druid/可访问连接池状态-->
+    <servlet>
+        <servlet-name>DruidStatView</servlet-name>
+        <servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DruidStatView</servlet-name>
+        <url-pattern>/druid/*</url-pattern>
+    </servlet-mapping>
+
 </web-app>
 

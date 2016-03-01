@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <!-- 使用驼峰命名法转换字段。default:false -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!-- 设置插入空值时不需要指定类型 ,default:OTHER，-->
+        <setting name="jdbcTypeForNull" value="NULL"/>
+    </settings>
+
+
+    <!--省略了mappers配置，前提是：xxMapper.xml配置文件放在和xxMapper.java统一目录下-->
+</configuration>
