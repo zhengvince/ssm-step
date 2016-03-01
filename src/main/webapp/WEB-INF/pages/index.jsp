@@ -8,9 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title></title>
+    <title>ssm</title>
   </head>
   <body>
+        <h1>index.jsp</h1>
+    <a href="${pageContext.request.contextPath}/json">使用 @ResponseBody 直接返回json</a>
 
   </body>
 </html>

@@ -4,7 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * ${DISCRIPTION}
+ * ToDo...
  * Author: vince
  * Create: 2016-02-20 下午4:38
  */

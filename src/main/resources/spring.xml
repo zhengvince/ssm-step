@@ -2,17 +2,29 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-                           http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-                           http://www.springframework.org/schema/context
-                           http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
     <!--
     ********************************************************************************
-    *      step01 spring 基础配置
+    *      step-01 spring 基础配置
     ********************************************************************************
     -->
     <!-- 扫描注解: @Component, @Repository, @Service, @Controller-->
     <context:component-scan base-package="com.learn">
     </context:component-scan>
+
+
+    <!--step-01 视图解析器-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          id="internalResourceViewResolver">
+        <!-- 前缀 -->
+        <property name="prefix" value="/WEB-INF/pages/" />
+        <!-- 后缀 -->
+        <property name="suffix" value=".jsp" />
+    </bean>
 
 </beans>
