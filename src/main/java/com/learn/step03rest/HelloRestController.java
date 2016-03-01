@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * ToDo...
+ * 用于测试REST风格的url映射的类
  * Created by Vince on 2016/2/18.
  */
 @Controller

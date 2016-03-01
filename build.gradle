@@ -10,18 +10,46 @@ repositories {
         url 'http://repo1.maven.org/maven2/'
     }
 }
-
+configurations {
+    //1. 引入包里排除 commons-logging ，因为我们用Logback SLF4j
+    all*.exclude group: "commons-logging", module: "commons-logging"
+    //定义mybatis-generator的依赖
+//    mybatisGenerator
+}
 dependencies {
     /*
-     |--------------------------------------------------------------------------
-     |  step 01 spring
-     |--------------------------------------------------------------------------
-     */
-    //spring-web-mvc
-    compile 'org.springframework:spring-webmvc:4.2.+'
+    |--------------------------------------------------------------------------
+    |  step 01 spring
+    |--------------------------------------------------------------------------
+    */
+    //spring-web-mvc,排除日志模块
+    compile('org.springframework:spring-webmvc:4.2.5.RELEASE')
     //spring-test
-    compile 'org.springframework:spring-test:4.2.+'
+    compile 'org.springframework:spring-test:4.2.5.RELEASE'
     //测试
-    testCompile 'junit:junit:4.1+'
+    testCompile 'junit:junit:4.12'
+    /*
+    |--------------------------------------------------------------------------
+    |  step-04 日志
+    |--------------------------------------------------------------------------
+    */
+    //slf4j-log4j绑定
+    compile 'org.slf4j:slf4j-log4j12:1.7.18'
+    //common-logging实际调用slf4j
+    compile 'org.slf4j:jcl-over-slf4j:1.7.18'
+    //jdk14-logger实际调用slf4j
+    compile 'org.slf4j:jul-to-slf4j:1.7.18'
+    //servlet-api
+    compile 'javax.servlet:javax.servlet-api:3.1.0'
+
+
+
+
+
+
+
+
+
+
 
 }

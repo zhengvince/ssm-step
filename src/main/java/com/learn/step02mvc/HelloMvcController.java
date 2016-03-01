@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.Map;
 
 /**
- * ToDo...
+ * 用于测试mvc的类
  * Created by Vince on 2016/3/1.
  */
 @Controller

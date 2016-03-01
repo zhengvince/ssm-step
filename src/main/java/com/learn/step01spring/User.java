@@ -3,7 +3,7 @@ package com.learn.step01spring;
 import org.springframework.stereotype.Component;
 
 /**
- * ToDo...
+ * 用于spring测试User类
  * Author: vince
  * Create: 2016-02-29 下午11:12
  */

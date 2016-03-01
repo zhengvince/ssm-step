@@ -26,6 +26,19 @@
     <!--必备注解-->
     <mvc:annotation-driven/>
 
+    <!--
+     ********************************************************************************
+     *      step-04 日志
+     ********************************************************************************
+     -->
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:log4j.properties</value>
+            </list>
+        </property>
+    </bean>
 
 
 </beans>

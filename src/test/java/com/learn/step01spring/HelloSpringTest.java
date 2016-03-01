@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 
 /**
- * ToDo...
+ * spring的测试类
  * Author: vince
  * Create: 2016-02-29 下午11:31
  */
