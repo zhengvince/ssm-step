@@ -11,14 +11,13 @@ spring springMVC mybatis 组装的脚手架。每次提交一步步的都很清�
 ##### 依赖管理工具
 * **Gradle** ：美观,清晰,趋势,利于后期学习安卓。
 
-#### 每一步
-每次整合一个jar包算一步
-* step-01 **Spring** ＜/br＞ IOC的基础
-* step-02 **Spring-MVC** ＜/br＞ web框架基础
-* step-03 **Rest风格URL** ＜/br＞ 整洁
-* step-04 **slf4j** ＜/br＞ 统一的日志管理, 流行, 功能全面
-* step-05 **Mybatis**   **Druid**＜/br＞ 流行, 易学, 功能强大.＜/br＞
-          Druid文档齐全, 监控方便.　
+#### Step by Step
+* 01 **Spring**   IOC的基础
+* 02 **Spring-MVC**   web框架基础
+* 03 **Rest风格URL**   整洁
+* 04 **slf4j**   统一的日志管理, 流行, 功能全面
+* 05 **Mybatis**   流行, 易学, 功能强大
+* 05 **Druid**   Druid文档齐全, 监控方便.　
 
 
 
