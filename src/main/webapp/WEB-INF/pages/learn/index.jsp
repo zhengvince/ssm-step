@@ -11,6 +11,10 @@
     <title>ssm</title>
   </head>
   <body>
-        <h1>index.jsp</h1>
+        <h1>learn.index.jsp</h1>
+    <a href="${pageContext.request.contextPath}/learn/json">使用 @ResponseBody 直接返回json</a>
+        <br>
+    <a href="${pageContext.request.contextPath}/learn/cn">使用@ResponseBody时，产生乱码的解决</a>
+
   </body>
 </html>
