@@ -7,9 +7,10 @@
 
     <!--
      ********************************************************************************
-     *      step-02 启动 spring context 监听
+     *      启动 spring context 监听
      ********************************************************************************
      -->
+    <!--step-02-->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:/spring.xml</param-value>
@@ -19,11 +20,13 @@
     </listener>
     <!--
     ********************************************************************************
-    *        step-02 过滤器
+    *        过滤器
     ********************************************************************************
     -->
+    <!--step-02 中文编码-->
     <filter>
-        <filter-name>CharacterEncodingFilter</filter-name> <!--编码utf-8过滤-->
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <!--编码utf-8过滤-->
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
         <async-supported>true</async-supported>
         <init-param>
@@ -39,11 +42,23 @@
         <filter-name>CharacterEncodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+    <!--  step-03 Rest风格的URL配置，可以报POST转成DELETE请求 或POST 请求
+          tomcat8 会报错，可以使用tomcat7-->
+    <filter>
+        <filter-name>HiddenHttpMethodFilter</filter-name>
+        <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>HiddenHttpMethodFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
     <!--
     ********************************************************************************
-    *       step-02 springMVC请求分发
+    *       springMVC请求分发
     ********************************************************************************
     -->
+    <!--step-02-->
     <servlet>
         <servlet-name>mvc-dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -52,7 +67,8 @@
             <param-name>contextConfigLocation</param-name>
             <param-value>classpath:spring-mvc.xml</param-value>
         </init-param>
-        <load-on-startup>1</load-on-startup><!--启动时加载-->
+        <load-on-startup>1</load-on-startup>
+        <!--启动时加载-->
         <async-supported>true</async-supported>
     </servlet>
     <servlet-mapping>    <!--设置所有url都经过mvc-dispatcher-->

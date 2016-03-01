@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Arrays;
+import java.util.Map;
+
 /**
  * ToDo...
  * Created by Vince on 2016/3/1.
@@ -14,15 +17,27 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/")
 public class HelloMvcController {
 
+    //根目录
     @RequestMapping(method = RequestMethod.GET)
     public String helloIndex(){
         return "learn/index";
     }
 
+    //json
     @ResponseBody
     @RequestMapping(value = "learn/json")
     public String helloJson(){
         return "json";
+    }
+
+    /**
+     * 控制器中添加 Map 类型的传入参数.
+     */
+    @RequestMapping( "learn/learnMap")
+    public String testMap(Map<String, Object> map){
+        map.put( "names", Arrays.asList("Tom", "Jerry", "Mike"));
+        map.put( "car", "奥迪");
+        return "learn/learnMap";
     }
 
     /*
