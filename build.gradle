@@ -11,7 +11,7 @@ repositories {
     }
 }
 configurations {
-    //1. 引入包里排除 commons-logging ，因为我们用Logback SLF4j
+    //1. 引入包里排除 commons-logging ，因为我们用 SLF4j
     all*.exclude group: "commons-logging", module: "commons-logging"
     //定义mybatis-generator的依赖
 //    mybatisGenerator
