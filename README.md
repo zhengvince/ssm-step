@@ -16,8 +16,8 @@ spring springMVC mybatis 组装的脚手架。每次提交一步步的都很清�
 * 02 **Spring-MVC**   web框架基础
 * 03 **Rest风格URL**   整洁
 * 04 **slf4j**   统一的日志管理, 流行, 功能全面
-* 05 **Mybatis**   流行, 易学, 功能强大
-* 05 **Druid**   Druid文档齐全, 监控方便.　
+* 05 **Mybatis** 持久层框架,流行, 易学, 功能强大
+* 05 **Druid**   连接池,文档齐全, 监控方便.　
 
 
 
