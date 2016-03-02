@@ -19,11 +19,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class HelloSpringTest {
 
     @Autowired
-    private User user;
+    private SpringUser springUser;
 
     @Test
     public void testSayHello() {
-        Assert.assertEquals("Hello World!", user.sayHello());
+        Assert.assertEquals("Hello World!", springUser.sayHello());
     }
 
 

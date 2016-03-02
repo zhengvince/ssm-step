@@ -25,7 +25,7 @@ dependencies {
     |--------------------------------------------------------------------------
     */
     //spring-web-mvc,排除日志模块
-    compile('org.springframework:spring-webmvc:4.2.5.RELEASE')
+    compile 'org.springframework:spring-webmvc:4.2.5.RELEASE'
     //spring-test
     compile 'org.springframework:spring-test:4.2.5.RELEASE'
     //测试
@@ -49,16 +49,28 @@ dependencies {
     |--------------------------------------------------------------------------
     */
     //jdbc
-    compile 'org.springframework:spring-jdbc:4.2+'
+    compile 'org.springframework:spring-jdbc:4.2.5.RELEASE'
     //druid数据库连接池
-    compile 'com.alibaba:druid:1.0.+'
+    compile 'com.alibaba:druid:1.0.17'
     //mysql驱动
-    runtime 'mysql:mysql-connector-java:5.1.+'
+    runtime 'mysql:mysql-connector-java:5.1.38'
     //mybatis数据库核心
-    compile 'org.mybatis:mybatis:3.3.+'
+    compile 'org.mybatis:mybatis:3.3.1'
     //mybatis数据库spring支持
-    compile 'org.mybatis:mybatis-spring:1.2.+'
-
+    compile 'org.mybatis:mybatis-spring:1.2.4'
+    /*
+    |--------------------------------------------------------------------------
+    |  step-06 shiro
+    |--------------------------------------------------------------------------
+    */
+    //Shiro支持spring插件
+    compile 'org.apache.shiro:shiro-spring:1.2.4'
+    //EHCache支持shiro插件
+    compile 'org.apache.shiro:shiro-ehcache:1.2.4'
+    //EHCache支持mybatis插件
+    compile 'org.mybatis.caches:mybatis-ehcache:1.0.3'
+    //Spring的mvc扩展支持包,使用EHCache / Freemarker 必须添加此包
+    compile 'org.springframework:spring-context-support:4.2.5.RELEASE'
 
 
 

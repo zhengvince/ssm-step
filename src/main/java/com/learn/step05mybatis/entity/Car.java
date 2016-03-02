@@ -39,4 +39,13 @@ public class Car {
     public void setColor(String color) {
         this.color = color;
     }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+                ", bland='" + bland + '\'' +
+                ", color='" + color + '\'' +
+                '}';
+    }
 }

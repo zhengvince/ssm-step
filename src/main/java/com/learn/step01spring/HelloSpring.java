@@ -16,13 +16,13 @@ public class HelloSpring {
 
 
         //从容器中获取Bean
-        User user =  context.getBean(User.class);
+        SpringUser springUser =  context.getBean(SpringUser.class);
 
         //调用方法
-        user.setUserName("张三");
+        springUser.setUserName("张三");
 
-        System.out.println(user.sayHello());
-        System.out.println(user.sayHelloToUser());
+        System.out.println(springUser.sayHello());
+        System.out.println(springUser.sayHelloToUser());
 
 
     }

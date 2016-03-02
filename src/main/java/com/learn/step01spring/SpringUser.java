@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  * Create: 2016-02-29 下午11:12
  */
 @Component
-public class User {
+public class SpringUser {
     private String userName;
 
     public void setUserName(String name){

@@ -25,7 +25,7 @@
 
     <!-- 自动扫描mappers -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.learn.step05mybatis.mapper"/>
+        <property name="basePackage" value="com.learn./**/.mapper"/>
         <!---根据自己的项目路径配置-->
     </bean>
 

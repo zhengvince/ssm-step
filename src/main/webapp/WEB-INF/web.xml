@@ -7,16 +7,22 @@
 
     <!--
      ********************************************************************************
-     *      启动 spring context 监听
+     *      监听器
      ********************************************************************************
      -->
-    <!--step-02-->
+    <!--step-02 Spring配置-->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:/spring.xml</param-value>
     </context-param>
-    <listener><!--  Spring 容器启动监听器 -->
+    <!--step-02 Spring容器启动监听器 -->
+    <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <!--step-06 EHCache结束监听。如果不加，EHCache不会自动结束，端口不释放-->
+    <listener>
+        <listener-class>net.sf.ehcache.constructs.web.ShutdownListener</listener-class>
     </listener>
     <!--
     ********************************************************************************
@@ -81,7 +87,7 @@
     *       Druid状态监视
     ********************************************************************************
     -->
-    <!--step-05 /druid/可访问连接池状态-->
+    <!--step-05 druid 可访问连接池状态-->
     <servlet>
         <servlet-name>DruidStatView</servlet-name>
         <servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
@@ -90,6 +96,7 @@
         <servlet-name>DruidStatView</servlet-name>
         <url-pattern>/druid/*</url-pattern>
     </servlet-mapping>
+
 
 </web-app>
 
