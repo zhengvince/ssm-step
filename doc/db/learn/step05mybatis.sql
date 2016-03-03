@@ -36,10 +36,10 @@ INSERT INTO `car` VALUES ('1', '奥迪', '黑色'), ('2', '奔驰', '白色'), (
 COMMIT;
 
 -- ----------------------------
---  Table structure for `user`
+--  Table structure for `users`
 -- ----------------------------
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user` (
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(30) DEFAULT NULL,
   `password` varchar(30) DEFAULT NULL,
@@ -51,7 +51,7 @@ CREATE TABLE `user` (
 --  Records of `user`
 -- ----------------------------
 BEGIN;
-INSERT INTO `user` VALUES ('1', 'zhangsan', '333333', '18'), ('2', 'lisi', '444444', '24'), ('3', 'wangwu', '555555', '28'), ('4', 'zhaoliu', '666666', '35');
+INSERT INTO `users` VALUES ('1', 'zhangsan', '333333', '18'), ('2', 'lisi', '444444', '24'), ('3', 'wangwu', '555555', '28'), ('4', 'zhaoliu', '666666', '35');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
