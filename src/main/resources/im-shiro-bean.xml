@@ -25,20 +25,25 @@
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <!-- Shiro的核心安全接口,这个属性是必须的 -->
         <property name="securityManager" ref="securityManager"/>
-        <!-- 要求登录时的链接(可根据项目的URL进行替换),非必须的属性,默认会自动寻找Web工程根目录下的"/login.jsp"页面 -->
-        <property name="loginUrl" value="/"/>
+        <!-- 要求登录时的链接 -->
+        <property name="loginUrl" value="/login.jsp"/>
         <!-- 登录成功后要跳转的连接 -->
-         <property name="successUrl" value="/system/main"/>
+        <property name="successUrl" value="/home.jsp"/>
         <!-- 用户访问未对其授权的资源时,所显示的连接 -->
-        <property name="unauthorizedUrl" value="/"/>
-        <!-- 过滤url请求，详见http://blog.csdn.net/jadyer/article/details/12172839-->
+        <property name="unauthorizedUrl" value="/unauthorized.jsp"/>
+
         <property name="filterChainDefinitions">
+            <!-- 过滤url请求，详见http://blog.csdn.net/jadyer/article/details/12172839-->
             <value>
-                /mydemo/login=anon  <!--无参,表示任何人使用,anon=anyone-->
-                /mydemo/getVerifyCodeImage=anon
-                /main**=authc
-                /user/info**=authc
-                /admin/listUser**=authc,perms[admin:manage]
+                /admin/** = authc, roles[admin]
+                /docs/** = authc, perms[document:read]
+                /** = authc
+                /index.html = anon
+                /user/create = anon
+                /user/** = authc
+                /admin/** = authc, roles[administrator]
+                /rest/** = authc, rest
+                /remoting/rpc/** = authc, perms["remote:invoke"]
             </value>
         </property>
     </bean>
@@ -46,8 +51,7 @@
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
 
     <!--使用注解必须添加-->
-    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
-          depends-on="lifecycleBeanPostProcessor"/>
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor"/>
     <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
         <property name="securityManager" ref="securityManager"/>
     </bean>
