@@ -31,18 +31,18 @@ public class HelloLog4jController {
         log.debug("Processing trade with id: {} and symbol : {} ", id, symbol);
         log.info("三个参数:agrs1:{};agrs2:{} 的info级别日志", "占位符1", "参数2",
                 new IOException("测试抛出IO异常信息"));
-        return "learn/index";
+        return "learn/learn";
     }
     @RequestMapping( value = "debug",method = RequestMethod.GET)
     public String logDebug(){
         log.debug("测试日志输出～～～～～～～～～～～～～～～～～: {} and symbol : {} ", id, symbol);
-        return "learn/index";
+        return "learn/learn";
     }
 
     @RequestMapping( value = "error",method = RequestMethod.GET)
     public String logError(){
         log.error("测试error～～～～～～～～～～～～～～～～");
-        return "learn/index";
+        return "learn/learn";
     }
 
 }

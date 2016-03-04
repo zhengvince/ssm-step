@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * 业务层 实现
@@ -42,6 +43,20 @@ public class UserServiceImpl implements UserService {
 
     }
 
+
+    @Override
+    public Set<String> getRoles(String username) {
+        //todo 获取角色
+
+        return null;
+    }
+
+    @Override
+    public Set<String> getPermissions(String username) {
+        //todo 获取权限
+        return null;
+    }
+
     @Override
     public int insert(User user) {
         return this.userMapper.insert(user);
@@ -70,5 +85,9 @@ public class UserServiceImpl implements UserService {
         return this.userMapper.countAll();
 
     }
+
+
+
+
 
 }

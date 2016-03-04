@@ -52,6 +52,18 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+    <!--  step-03 Rest风格的URL配置，可以报POST转成DELETE请求 或POST 请求
+          tomcat8 会报错，可以使用tomcat7-->
+    <filter>
+        <filter-name>HiddenHttpMethodFilter</filter-name>
+        <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>HiddenHttpMethodFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <!--  step-07 Shiro 权限验证-->
     <filter>
         <filter-name>shiroFilter</filter-name>
@@ -67,17 +79,6 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-    <!--  step-03 Rest风格的URL配置，可以报POST转成DELETE请求 或POST 请求
-          tomcat8 会报错，可以使用tomcat7-->
-    <filter>
-        <filter-name>HiddenHttpMethodFilter</filter-name>
-        <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
-    </filter>
-
-    <filter-mapping>
-        <filter-name>HiddenHttpMethodFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
     <!--
     ********************************************************************************
     *       springMVC请求分发
@@ -122,6 +123,9 @@
     ********************************************************************************
     -->
     <!--  step-07 Shiro-->
+    <welcome-file-list>
+        <welcome-file>/WEB-INF/pages/index.jsp</welcome-file>
+    </welcome-file-list>
     <error-page>
         <error-code>405</error-code>
         <location>/WEB-INF/pages/learn/shiro/error/405.jsp</location>

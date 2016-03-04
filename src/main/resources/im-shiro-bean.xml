@@ -11,7 +11,7 @@
     ********************************************************************************
     -->
     <!--自定义一个Realm，指定Shiro验证用户登录的类为自定义的ShiroDbRealm.java-->
-    <bean id="myRealm" class="com.learn.step07shiro.realm.UserRealm"/>
+    <bean id="myRealm" class="com.learn.step07shiro.MyRealm"/>
 
     <!--根据Realm，创建实例securityManager-->
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
@@ -31,19 +31,18 @@
         <property name="successUrl" value="/home.jsp"/>
         <!-- 用户访问未对其授权的资源时,所显示的连接 -->
         <property name="unauthorizedUrl" value="/unauthorized.jsp"/>
-
         <property name="filterChainDefinitions">
             <!-- 过滤url请求，详见http://blog.csdn.net/jadyer/article/details/12172839-->
             <value>
-                /admin/** = authc, roles[admin]
-                /docs/** = authc, perms[document:read]
-                /** = authc
-                /index.html = anon
-                /user/create = anon
+                <!--/learn/rest/** = anon-->
+                /learn/** = anon
                 /user/** = authc
-                /admin/** = authc, roles[administrator]
-                /rest/** = authc, rest
-                /remoting/rpc/** = authc, perms["remote:invoke"]
+                <!--/admin/** = authc, roles[administrator]-->
+                <!--/rest/** = authc, rest-->
+                <!--/remoting/rpc/** = authc, perms["remote:invoke"]-->
+                <!--/admin/** = authc, roles[admin]-->
+                <!--/docs/** = authc, perms[document:read]-->
+                <!--/** = authc-->
             </value>
         </property>
     </bean>

@@ -22,10 +22,12 @@
 
 <div style="float: left;clear: both">
 
+    <a href="${pageContext.request.contextPath}/learn/rest/1"> 获取</a>&nbsp;|&nbsp;
+
     <form action="${pageContext.request.contextPath}/learn/rest/1" method="get">
         <button type="submit" >获取-get</button>
     </form>
-    <form action="${pageContext.request.contextPath}/learn/rest" method="post">
+    <form action="${pageContext.request.contextPath}/learn/rest/" method="post">
         <button type="submit">新增POST</button>
     </form>
     <form action="${pageContext.request.contextPath}/learn/rest/1" method="post">
@@ -40,11 +42,11 @@
 
 <div style="float: left;clear: both">
     <h3>------------ step-02 mvc---------------------------------</h3>
-    <a href="${pageContext.request.contextPath}/learn/json"> 直接返回json</a>&nbsp;|&nbsp;
+    <a href="${pageContext.request.contextPath}/learn/mvc/json"> 直接返回json</a>&nbsp;|&nbsp;
 
-    <a href="${pageContext.request.contextPath}/learn/cn">产生乱码的解决</a>&nbsp;|&nbsp;
+    <a href="${pageContext.request.contextPath}/learn/mvc/cn">产生乱码的解决</a>&nbsp;|&nbsp;
 
-    <a href="${pageContext.request.contextPath}/learn/learnMap">传参</a>&nbsp;|&nbsp;
+    <a href="${pageContext.request.contextPath}/learn/mvc/learnMap">传参</a>&nbsp;|&nbsp;
 </div>
 
 </body>

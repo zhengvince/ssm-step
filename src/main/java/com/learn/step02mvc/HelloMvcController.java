@@ -1,6 +1,5 @@
 package com.learn.step02mvc;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,18 +13,18 @@ import java.util.Map;
  * Created by Vince on 2016/3/1.
  */
 @Controller
-@RequestMapping("/")
+@RequestMapping("learn/mvc")
 public class HelloMvcController {
 
     //根目录
     @RequestMapping(method = RequestMethod.GET)
     public String helloIndex(){
-        return "learn/index";
+        return "learn/learn";
     }
 
     //json
     @ResponseBody
-    @RequestMapping(value = "learn/json")
+    @RequestMapping(value = "/json")
     public String helloJson(){
         return "json";
     }
@@ -33,11 +32,11 @@ public class HelloMvcController {
     /**
      * 控制器中添加 Map 类型的传入参数.
      */
-    @RequestMapping( "learn/learnMap")
+    @RequestMapping( "/learnMap")
     public String testMap(Map<String, Object> map){
         map.put( "names", Arrays.asList("Tom", "Jerry", "Mike"));
         map.put( "car", "奥迪");
-        return "learn/learnMap";
+        return "learn/mvc/learnMap";
     }
 
     /*
@@ -52,7 +51,7 @@ public class HelloMvcController {
     |
     */
     @ResponseBody
-    @RequestMapping(value = "learn/cn" , produces="application/json;charset=utf-8")
+    @RequestMapping(value = "/cn" , produces="application/json;charset=utf-8")
     public String helloCn(){
         return "使用@ResponseBody时，产生乱码的解决";
 

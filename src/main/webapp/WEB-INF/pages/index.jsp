@@ -11,6 +11,11 @@
     <title>ssm</title>
   </head>
   <body>
-        <h1>index.jsp</h1>
+        <h1>welcome index.jep</h1>
+        <h1>
+        <a href="${pageContext.request.contextPath}/learn/mvc">SSM-step learn</a>
+
+        </h1>
+
   </body>
 </html>

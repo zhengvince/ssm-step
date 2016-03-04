@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
  * Created by Vince on 2016/2/18.
  */
 @Controller
-@RequestMapping("/learn")
+@RequestMapping("/learn/rest")
 public class HelloRestController {
 
     /*
@@ -27,7 +27,7 @@ public class HelloRestController {
     /**
      * GET
      */
-    @RequestMapping(value = "/rest/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String restGet( @PathVariable Integer id) {
         System.out.println( "查看Get: " + id);
         return restReturnView;
@@ -35,7 +35,7 @@ public class HelloRestController {
     /**
      * POST
      */
-    @RequestMapping(value = "/rest", method = RequestMethod.POST)
+    @RequestMapping(value = "/", method = RequestMethod.POST)
     public String restPost() {
         System.out.println( "新增Post: ");
         return restReturnView;
@@ -43,7 +43,7 @@ public class HelloRestController {
     /**
      * PUT
      */
-    @RequestMapping(value = "/rest/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public String restPut( @PathVariable Integer id) {
         System.out.println( "修改Put: " + id);
         return restReturnView;
@@ -51,7 +51,7 @@ public class HelloRestController {
     /**
      * DELETE
      */
-    @RequestMapping(value = "/rest/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public String restDelete( @PathVariable Integer id) {
         System.out.println( "删除Delete: " + id);
         return restReturnView;
