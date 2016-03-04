@@ -13,7 +13,7 @@
   <body>
         <h1>welcome index.jep</h1>
         <h1>
-        <a href="${pageContext.request.contextPath}/learn/mvc">SSM-step learn</a>
+        <a href="${pageContext.request.contextPath}/learn">SSM-step learn</a>
 
         </h1>
 

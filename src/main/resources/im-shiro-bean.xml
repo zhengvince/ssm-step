@@ -26,17 +26,18 @@
         <!-- Shiro的核心安全接口,这个属性是必须的 -->
         <property name="securityManager" ref="securityManager"/>
         <!-- 要求登录时的链接 -->
-        <property name="loginUrl" value="/login.jsp"/>
+        <property name="loginUrl" value="${learnPath}/login"/>
         <!-- 登录成功后要跳转的连接 -->
-        <property name="successUrl" value="/home.jsp"/>
+        <property name="successUrl" value="/learn/shiro/user_info"/>
         <!-- 用户访问未对其授权的资源时,所显示的连接 -->
-        <property name="unauthorizedUrl" value="/unauthorized.jsp"/>
+        <property name="unauthorizedUrl" value="/learn/shiro/"/>
         <property name="filterChainDefinitions">
             <!-- 过滤url请求，详见http://blog.csdn.net/jadyer/article/details/12172839-->
             <value>
-                <!--/learn/rest/** = anon-->
-                /learn/** = anon
-                /user/** = authc
+                <!--/learn/** = anon-->
+                /learn/error/** = anon
+                /learn/mvc/** = anon
+                /learn/ehcache/** = authc
                 <!--/admin/** = authc, roles[administrator]-->
                 <!--/rest/** = authc, rest-->
                 <!--/remoting/rpc/** = authc, perms["remote:invoke"]-->
