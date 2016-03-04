@@ -6,7 +6,11 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/cache
        http://www.springframework.org/schema/cache/spring-cache.xsd">
-
+    <!--
+     ********************************************************************************
+     *      step-06 EHCache 缓存
+     ********************************************************************************
+     -->
     <cache:annotation-driven cache-manager="cacheManager"/>
 
     <bean id="cacheManagerFactory" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">

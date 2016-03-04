@@ -71,4 +71,10 @@ public class UserServiceTest {
         user = userService.findById(1);
         System.out.println("      @@@========>"+user.toString());
     }
+
+    @Test
+    public void testFindByUserName() throws Exception {
+        user = userService.findByUsername("zhaoliu");
+        System.out.println("      @@@========>"+user.toString());
+    }
 }

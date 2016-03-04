@@ -20,4 +20,6 @@ public interface UserService {
     int countAll();
 
     User findById(Integer id);
+
+    User findByUsername(String username);
 }

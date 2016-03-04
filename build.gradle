@@ -71,8 +71,15 @@ dependencies {
     compile 'org.mybatis.caches:mybatis-ehcache:1.0.3'
     //Spring的mvc扩展支持包,使用EHCache / Freemarker 必须添加此包
     compile 'org.springframework:spring-context-support:4.2.5.RELEASE'
-
-
+    /*
+    |--------------------------------------------------------------------------
+    |  常用工具集
+    |--------------------------------------------------------------------------
+    */
+    //谷歌guava工具包
+    compile 'com.google.guava:guava:19.0'
+    //apache工具包
+    compile 'org.apache.commons:commons-lang3:3.4'
 
 
 

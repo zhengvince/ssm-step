@@ -15,11 +15,14 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:/spring.xml</param-value>
     </context-param>
+    <!-- 防止内存泄露,应将它配置在ContextLoaderListener的前面，详见http://blog.csdn.net/jadyer/article/details/11991457 -->
+    <listener>
+        <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+    </listener>
     <!--step-02 Spring容器启动监听器 -->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
-
     <!--step-06 EHCache结束监听。如果不加，EHCache不会自动结束，端口不释放-->
     <listener>
         <listener-class>net.sf.ehcache.constructs.web.ShutdownListener</listener-class>
@@ -48,6 +51,22 @@
         <filter-name>CharacterEncodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+    <!--  step-07 Shiro 权限验证-->
+    <filter>
+        <filter-name>shiroFilter</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+        <init-param>
+            <!-- 默认false,表示生命周期由SpringApplicationContext管理,设置为true则表示由ServletContainer管理 -->
+            <param-name>targetFilterLifecycle</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>shiroFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <!--  step-03 Rest风格的URL配置，可以报POST转成DELETE请求 或POST 请求
           tomcat8 会报错，可以使用tomcat7-->
     <filter>
@@ -97,6 +116,34 @@
         <url-pattern>/druid/*</url-pattern>
     </servlet-mapping>
 
+    <!--
+    ********************************************************************************
+    *      静态页
+    ********************************************************************************
+    -->
+    <!--  step-07 Shiro-->
+    <error-page>
+        <error-code>405</error-code>
+        <location>/WEB-INF/pages/learn/shiro/error/405.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/pages/learn/shiro/error/404.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/pages/learn/shiro/error/500.jsp</location>
+    </error-page>
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/WEB-INF/pages/learn/shiro/error/500.jsp</location>
+    </error-page>
 
+    <!--
+    ********************************************************************************
+    *      Web容器加载顺序
+    ********************************************************************************
+    -->
+    <!--  Web容器加载顺序ServletContext|context|param|listener|filter|servlet -->
 </web-app>
 

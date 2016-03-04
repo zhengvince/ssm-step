@@ -28,4 +28,8 @@
     <select id="findById" parameterType="Integer" resultType="com.learn.step06ehcache.entity.User">
         SELECT * FROM user WHERE id=#{id}
     </select>
+
+    <select id="findByUsername" parameterType="String" resultType="com.learn.step06ehcache.entity.User">
+        SELECT * FROM user WHERE username=#{username}
+    </select>
 </mapper>

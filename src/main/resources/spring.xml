@@ -25,12 +25,14 @@
         <property name="suffix" value=".jsp" />
     </bean>
 
-    <!-- step-05 druid -->
+    <!-- step-05 Druid -->
     <import resource="classpath:im-druid-bean.xml"/>
     <!-- step-05 Mybatis -->
     <import resource="classpath:im-mybatis-bean.xml"/>
-    <!-- step-06 缓存交给EHCache管理 -->
+    <!-- step-06 EHCache -->
     <import resource="classpath:im-ehcache-bean.xml"/>
+    <!-- step-07 Shiro -->
+    <import resource="classpath:im-shiro-bean.xml"/>
 
 
 

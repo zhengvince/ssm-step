@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        ">
+    <!--
+    ********************************************************************************
+    *      step-07 Shiro 权限验证
+    ********************************************************************************
+    -->
+    <!--自定义一个Realm，指定Shiro验证用户登录的类为自定义的ShiroDbRealm.java-->
+    <bean id="myRealm" class="com.learn.step07shiro.realm.UserRealm"/>
+
+    <!--根据Realm，创建实例securityManager-->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realms">
+            <list>
+                <ref bean="myRealm" />
+            </list>
+        </property>
+    </bean>
+    <!--web过滤器shiroFilter，id必须与web.xml中过滤器名字一样-->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!-- Shiro的核心安全接口,这个属性是必须的 -->
+        <property name="securityManager" ref="securityManager"/>
+        <!-- 要求登录时的链接(可根据项目的URL进行替换),非必须的属性,默认会自动寻找Web工程根目录下的"/login.jsp"页面 -->
+        <property name="loginUrl" value="/"/>
+        <!-- 登录成功后要跳转的连接 -->
+         <property name="successUrl" value="/system/main"/>
+        <!-- 用户访问未对其授权的资源时,所显示的连接 -->
+        <property name="unauthorizedUrl" value="/"/>
+        <!-- 过滤url请求，详见http://blog.csdn.net/jadyer/article/details/12172839-->
+        <property name="filterChainDefinitions">
+            <value>
+                /mydemo/login=anon  <!--无参,表示任何人使用,anon=anyone-->
+                /mydemo/getVerifyCodeImage=anon
+                /main**=authc
+                /user/info**=authc
+                /admin/listUser**=authc,perms[admin:manage]
+            </value>
+        </property>
+    </bean>
+    <!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+    <!--使用注解必须添加-->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+          depends-on="lifecycleBeanPostProcessor"/>
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+
+
+
+</beans>

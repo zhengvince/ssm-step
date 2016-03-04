@@ -23,7 +23,7 @@
         <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>
 
-    <!--必备注解-->
+    <!--必备注解,它会自动注册HandlerMapping、HandlerAdapter、ExceptionResolver的相关实例 -->
     <mvc:annotation-driven/>
 
     <!--

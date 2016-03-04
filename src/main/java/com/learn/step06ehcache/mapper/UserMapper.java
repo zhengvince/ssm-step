@@ -23,5 +23,8 @@ public interface UserMapper {
          int countAll();
 
          User findById(Integer id);
+         User findByUsername(String username);
+
+
 
 }
